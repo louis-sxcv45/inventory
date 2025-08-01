@@ -29,6 +29,7 @@
         "DB_HOST": "c-7vk0.h.filess.io",
         "DB_PORT": "61002",
         "DB_DATABASE": "atk_oldwallcut",
-        "DB_USERNAME": "atk_oldwallcut"
+        "DB_USERNAME": "atk_oldwallcut",
+        "DB_PASSWORD": "16623403a245ff03ebaf29cd9c341e739913390c"
     }
 }
