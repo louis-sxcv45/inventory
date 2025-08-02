@@ -9,6 +9,12 @@ error_reporting(E_ALL);
 $_SERVER['HTTPS'] = 'on';
 $_SERVER['SERVER_PORT'] = 443;
 
+// Set dynamic APP_URL based on current host
+if (isset($_SERVER['HTTP_HOST'])) {
+    $_ENV['APP_URL'] = 'https://' . $_SERVER['HTTP_HOST'];
+    putenv('APP_URL=https://' . $_SERVER['HTTP_HOST']);
+}
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
