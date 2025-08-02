@@ -7,8 +7,20 @@
     },
     "routes": [
         {
-            "src": "/build/(.*)",
+            "src": "/build/(.)",
             "dest": "/public/build/$1"
+        },
+        {
+            "src": "/css/(.)",
+            "dest": "/public/css/$1"
+        },
+        {
+            "src": "/js/(.)",
+            "dest": "/public/js/$1"
+        },
+        {
+            "src": "/images/(.)",
+            "dest": "/public/images/$1"
         },
         {
             "src": "/(.*)",
@@ -16,6 +28,7 @@
         }
     ],
     "outputDirectory": "public",
+    "buildCommand": "composer install --no-dev --optimize-autoloader",
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
