@@ -5,34 +5,35 @@
             "runtime": "vercel-php@0.7.4"
         }
     },
-    "routes": [
+    "builds": [
         {
-            "src": "/build/(.)",
-            "dest": "/public/build/$1"
-        },
-        {
-            "src": "/css/(.)",
-            "dest": "/public/css/$1"
-        },
-        {
-            "src": "/js/(.)",
-            "dest": "/public/js/$1"
-        },
-        {
-            "src": "/images/(.)",
-            "dest": "/public/images/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
+            "src": "package.json",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": ["public/*"]
+            }
         }
     ],
+    "routes": [
+        {
+            "src": "/build/assets/(.)",
+            "dest": "/public/build/assets/$1"
+        },
+        {
+            "src": "/api/(.)",
+            "dest": "/api/$1.php"
+        },
+        {
+            "src": "/(.)",
+            "dest": "/public/index.html"
+        }
+    ],
+    "buildCommand": "npm run build",
+    "installCommand": "npm install && composer install --no-dev --optimize-autoloader",
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://management-inventory-two.vercel.app/",
-        "FORCE_HTTPS": "true",
         "APP_KEY": "base64:TGaVaXwhWgjn9akhE4SCSIjGG/cQqvICUQ+PgLA3Bs0=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -48,6 +49,7 @@
         "DB_PORT": "61002",
         "DB_DATABASE": "atk_oldwallcut",
         "DB_USERNAME": "atk_oldwallcut",
-        "DB_PASSWORD": "16623403a245ff03ebaf29cd9c341e739913390c"
+        "DB_PASSWORD": "16623403a245ff03ebaf29cd9c341e739913390c",
+        "VITE_APP_URL": "https://management-inventory-two.vercel.app/"
     }
-}
+} 
