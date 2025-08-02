@@ -7,25 +7,18 @@
     },
     "routes": [
         {
-            "src": "/build/assets/(.)",
-            "dest": "/public/build/assets/$1"
-        },
-        {
-            "src": "/build/(.)",
+            "src": "/build/(.*)",
             "dest": "/public/build/$1"
         },
         {
-            "src": "/api/(.)",
+            "src": "/(.*)",
             "dest": "/api/index.php"
-        },
-        {
-            "src": "/(.)",
-            "dest": "/public/index.html"
         }
     ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
+        "APP_URL": "https://inventory-drab-two.vercel.app/",
         "APP_KEY": "base64:TGaVaXwhWgjn9akhE4SCSIjGG/cQqvICUQ+PgLA3Bs0=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
